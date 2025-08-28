@@ -65,8 +65,19 @@ if (process.env.LOG_ALL) {
 
 Mindcraft.init(false, settings.mindserver_port);
 
+let count_id = 0;
 for (let profile of settings.profiles) {
     const profile_json = JSON.parse(readFileSync(profile, 'utf8'));
-    settings.profile = profile_json;
-    Mindcraft.createAgent(settings);
+
+    // Create a copy of the settings for each bot to avoid conflicts
+    const agentSettings = { ...settings, profile: profile_json, count_id: count_id };
+
+    Mindcraft.createAgent(agentSettings);
+    count_id++;
 }
+
+// for (let profile of settings.profiles) {
+//     const profile_json = JSON.parse(readFileSync(profile, 'utf8'));
+//     settings.profile = profile_json;
+//     Mindcraft.createAgent(settings);
+// }
