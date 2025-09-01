@@ -1,0 +1,103 @@
+Manual 6: Cooking
+1. Core Objective
+To process raw food items to increase their hunger restoration and saturation values, making them more efficient.
+
+2. Key Principles
+Heat Source: Cooking requires a heat source. The most common are the Furnace, Smoker, and Campfire.
+
+Fuel: Furnaces and Smokers require fuel (e.g., coal, wood) to operate. Campfires burn indefinitely.
+
+Benefit: Cooked food restores more hunger points and provides higher "saturation" than raw food. Saturation is a hidden value that determines how quickly the hunger bar depletes. High saturation means you stay full for longer.
+
+3. Cooking Appliances
+Appliance
+
+Description
+
+Fuel Required?
+
+Furnace
+
+The standard block for smelting and cooking. Can cook any food item.
+
+Yes
+
+Smoker
+
+A specialized block that cooks food twice as fast as a furnace. Cannot smelt ores.
+
+Yes
+
+Campfire
+
+Can cook up to four food items simultaneously without fuel. It is slower than a furnace. Items are placed directly onto it.
+
+No
+
+4. Cooking Process (Furnace/Smoker)
+Place Appliance: Place the Furnace or Smoker on the ground.
+
+Insert Fuel: Add a fuel source (like Coal or Planks) to the bottom slot.
+
+Insert Food: Add the raw food item to the top (input) slot.
+
+Wait: The arrow will fill up, indicating progress.
+
+Collect: Take the cooked food from the right (output) slot.
+
+5. Common Cookable Foods
+Raw Food
+
+Cooked Food
+
+Source
+
+Raw Beef
+
+Steak
+
+Cow
+
+Raw Porkchop
+
+Cooked Porkchop
+
+Pig
+
+Raw Mutton
+
+Cooked Mutton
+
+Sheep
+
+Raw Chicken
+
+Cooked Chicken
+
+Chicken
+
+Raw Cod
+
+Cooked Cod
+
+Fish (Cod)
+
+Raw Salmon
+
+Cooked Salmon
+
+Fish (Salmon)
+
+Potato
+
+Baked Potato
+
+Farming
+
+Kelp
+
+Dried Kelp
+
+Ocean
+
+Note: Eating Raw Chicken has a chance to inflict the "Hunger" status effect, which drains the hunger bar faster. Always cook chicken.

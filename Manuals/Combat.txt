@@ -1,0 +1,111 @@
+Manual 8: Combat
+1. Core Objective
+To effectively engage and neutralize hostile creatures (mobs) to ensure survival and gather resources.
+
+2. Key Principles
+Awareness: Be aware of your surroundings, especially at night or in dark caves. Listen for mob sounds (zombie groans, skeleton rattles).
+
+Armor: Armor reduces incoming damage. It is crafted from Leather, Iron, Gold, Diamond, or Netherite. A full set consists of a helmet, chestplate, leggings, and boots. Iron armor is the standard for reliable protection.
+
+Shield: A shield, when raised (right-click), will block 100% of the damage from a single frontal melee or projectile attack. It is an essential defensive tool.
+
+Movement: Do not stand still. Circle-strafe around enemies to avoid their attacks while landing your own.
+
+Critical Hits: Attacking while falling (e.g., jump-striking) results in a critical hit, dealing bonus damage.
+
+Positioning: Use the environment to your advantage. Fight in open spaces, use corners to hide from skeletons, or build a 3-block-high pillar to stand on to avoid melee attackers.
+
+3. Combat Strategies
+Melee Combat (Sword/Axe):
+
+Timing: Wait for your weapon's attack cooldown to reset before swinging again to deal maximum damage.
+
+Sprint-Hitting: Sprinting before an attack adds knockback, pushing the enemy away from you.
+
+Shielding: Block an incoming attack with your shield, then immediately counter-attack while the enemy is recovering.
+
+Ranged Combat (Bow/Crossbow):
+
+Aiming: Lead your shots if the target is moving. Account for gravity by aiming slightly above distant targets.
+
+Kiting: Fire a shot, then retreat while the enemy approaches. Repeat this process to stay out of their melee range.
+
+Elevation: Gaining a high-ground advantage makes it much harder for melee mobs to reach you.
+
+4. Common Hostile Mobs (Overworld)
+Mob Name
+
+Health
+
+Attack Type
+
+Behavior & Strategy
+
+Drops
+
+Zombie
+
+10 ❤
+
+Melee
+
+Slow-moving. Attacks in groups. Straightforward to fight. Can break down wooden doors on Hard difficulty.
+
+Rotten Flesh
+
+Skeleton
+
+10 ❤
+
+Ranged (Bow)
+
+Shoots arrows from a distance. Use a shield to block arrows, or zigzag as you approach to close the distance.
+
+Bones, Arrows
+
+Creeper
+
+10 ❤
+
+Suicide Explosion
+
+Silent and dangerous. Sneaks up on you and explodes, causing massive terrain and player damage. Listen for its fuse hiss. Attack and retreat immediately.
+
+Gunpowder
+
+Spider
+
+8 ❤
+
+Melee (Leap)
+
+Can climb walls. Fast and leaps at you. Becomes neutral in daylight.
+
+String, Spider Eye
+
+Enderman
+
+20 ❤
+
+Melee
+
+Tall and passive until you look directly at its eyes. Teleports erratically during combat. Hit its legs. Avoid by not looking at it or getting in water.
+
+Ender Pearl
+
+Witch
+
+13 ❤
+
+Ranged (Potions)
+
+Throws harmful potions (slowness, poison). Drinks helpful potions to defend itself. A priority target to take out from a distance.
+
+Potions, Glass Bottles, Sticks
+
+5. Dealing with Groups
+Funneling: Retreat to a narrow 1-block wide corridor. This forces mobs to approach you one at a time.
+
+Area of Effect: A sword's sweep attack (when attack cooldown is full) can damage multiple mobs at once.
+
+Prioritization: Eliminate the most dangerous threats first. Ranged mobs (skeletons) and Creepers are usually the highest priority.

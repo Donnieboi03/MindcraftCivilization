@@ -1,0 +1,145 @@
+Manual 4: Mining
+1. Core Objective
+To gather stone and mineral resources (ores) from underground.
+
+2. Key Principles
+Tool Requirement: Most ores require a pickaxe of a certain tier to be harvested. Using a lower-tier pickaxe will break the ore block without dropping the item.
+
+Y-Level: Ores are most commonly found at specific depths. The Y-coordinate represents vertical position. Y= -64 is the bottom of the world. Y= 320 is the world height limit.
+
+Safety First: Mining is dangerous. Always carry torches to light up areas and prevent mob spawns. Be aware of lava, water, long drops, and gravel/sand, which can fall and suffocate you.
+
+The "Staircase": The standard way to descend to mining levels is to dig a staircase downwards, usually 1 block down for every 2 blocks forward. Do not dig straight down.
+
+3. Ore Tiers and Information
+Ore
+
+Mined With (Minimum)
+
+Found Near Y-Level (Best)
+
+Smelts Into
+
+Primary Use
+
+Coal
+
+Wooden Pickaxe
+
+Y=95 and Y=135
+
+(Fuel)
+
+Torches, Fuel
+
+Copper
+
+Stone Pickaxe
+
+Y=48
+
+Copper Ingot
+
+Building, Lightning Rods
+
+Iron
+
+Stone Pickaxe
+
+Y=15 and Y=232
+
+Iron Ingot
+
+Tools, Armor, Buckets
+
+Gold
+
+Iron Pickaxe
+
+Y=-16 (especially in Badlands biome)
+
+Gold Ingot
+
+Powered Rails, Piglin Trading
+
+Lapis Lazuli
+
+Stone Pickaxe
+
+Y=0
+
+Lapis Lazuli
+
+Enchanting, Blue Dye
+
+Redstone
+
+Iron Pickaxe
+
+Y=-59
+
+Redstone Dust
+
+Complex Circuits
+
+Diamond
+
+Iron Pickaxe
+
+Y=-59
+
+Diamond
+
+High-tier Gear
+
+Emerald
+
+Iron Pickaxe
+
+Y=232 (Mountains only)
+
+Emerald
+
+Villager Trading
+
+Ancient Debris (in the Nether) requires a Diamond Pickaxe and is used to make Netherite.
+
+
+
+
+
+
+
+
+
+4. Mining Techniques
+Cave Exploration:
+
+Method: Find a natural cave system and explore it. Place torches as you go to light the way and prevent getting lost (e.g., always place torches on the right wall).
+
+Pros: Fast way to find exposed ores.
+
+Cons: Dangerous due to mobs, lava pools, and sudden drops.
+
+Strip Mining / Branch Mining:
+
+Method: Descend to a target Y-level (e.g., -59 for diamonds). Dig a main tunnel (e.g., 2 blocks high, 1 block wide). From this main tunnel, dig straight branches off to the side every 2-3 blocks.
+
+Pros: Safe, systematic, and highly effective for finding specific ores like diamond.
+
+Cons: Can be time-consuming and produce a lot of non-valuable cobblestone.
+
+5. Smelting
+Ores like iron, copper, and gold must be processed in a Furnace to become usable ingots.
+
+Process:
+
+Place Furnace.
+
+Place ore in the top slot.
+
+Place fuel (coal, charcoal, wood, lava bucket) in the bottom slot.
+
+Wait for the process to complete.
+
+Collect the resulting ingot from the output slot.

@@ -1,0 +1,75 @@
+Manual 7: Construction
+1. Core Objective
+To build structures that provide shelter, storage, and specialized functionality.
+
+2. Key Principles
+Function First: A structure's first purpose is utility. A first-night shelter must be secure from mobs. A storage area must be organized and expandable.
+
+Materials Matter: Different materials have different properties.
+
+Wood: Plentiful, fast to gather, but flammable. Good for initial structures and aesthetic details.
+
+Dirt: Very fast to gather, but weak and unsightly. Used for temporary shelters or scaffolding.
+
+Cobblestone: Abundant, strong, and immune to fire. The standard building material for functional and defensive structures.
+
+Stone Bricks: A more refined version of cobblestone, offering better aesthetics.
+
+Foundation and Layout: Plan the footprint of your structure before building. A simple rectangular or square base is easiest to build and secure.
+
+Lighting: Ensure the interior of any structure is well-lit with torches (or other light sources) to prevent hostile mobs from spawning inside. Light level must be above 0.
+
+3. Building a Basic Shelter (First-Night Base)
+Objective: Create a small, secure, and lit space to survive the night.
+
+Location: Choose a location that is easy to defend, such as the side of a hill, a flat open area, or near your spawn point.
+
+Footprint: A 5x5 exterior (3x3 interior) is sufficient.
+
+Procedure:
+a. Level Ground: Clear a flat area for your base.
+b. Build Walls: Construct walls at least 3 blocks high using Wood Planks or Cobblestone. A 3-block high wall prevents spiders from climbing over and keeps you safe from most mobs.
+c. Add a Roof: Completely cover the top of the structure with blocks to prevent spiders from entering and to block rain/snow.
+d. Craft and Place a Door: Craft a wooden door and place it in a 1x2 opening in the wall. This allows you to enter and exit.
+e. Light the Interior: Place at least one torch inside to ensure no mobs can spawn within your base.
+f. Place Essentials: Place your Crafting Table, a Furnace, and a Chest inside for a functional workspace.
+
+4. Common Building Components
+Component
+
+Description
+
+Blocks
+
+The standard 1x1x1 building unit. The foundation of all construction.
+
+Slabs
+
+Half-height blocks. Used for smooth flooring, roofing, and fine details.
+
+Stairs
+
+Allows for vertical movement without jumping. Also used for decorative roofing and seating.
+
+Fences/Walls
+
+1.5 blocks high, preventing mobs (except spiders) from jumping over. Used to create animal pens and secure perimeters.
+
+Doors
+
+A 1x2 block that can be opened and closed, allowing player passage while blocking mobs (zombies can break wooden doors on Hard difficulty).
+
+Trapdoors
+
+A 1x1 version of a door. Can be placed on floors or ceilings.
+
+Glass/Glass Panes
+
+Transparent blocks that allow light through but block entities. Used for windows. Smelt sand in a furnace to get glass.
+
+5. Structural Design Concepts
+Symmetry: Symmetrical buildings are often aesthetically pleasing and easier to plan.
+
+Depth: Avoid flat walls. Add depth by using pillars, window sills, or a mix of stairs and slabs to create a more interesting facade.
+
+Palette: Choose a small set of 2-4 complementary blocks to build with (e.g., Oak Logs, Cobblestone, and Stone Bricks).

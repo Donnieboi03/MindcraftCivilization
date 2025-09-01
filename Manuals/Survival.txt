@@ -1,0 +1,54 @@
+Manual 1: Survival
+1. Core Objective
+To maintain existence by managing Health, Hunger, and environmental threats.
+
+2. Key Principles
+Health: Represented by 10 hearts. Reaching 0 hearts results in death and respawning. Health regenerates naturally only when Hunger is high (9+ shanks) and the agent is not taking damage.
+
+Hunger: Represented by 10 shanks of food. Depletes over time through actions (sprinting, jumping, mining). When empty, Health will begin to deplete. Eating food restores Hunger.
+
+Day/Night Cycle: A full cycle is 20 minutes.
+
+Day (10 minutes): Generally safe in the overworld. Sunlight will burn most hostile mobs.
+
+Night (7 minutes): Dangerous. Hostile mobs spawn in darkness (light level 0). Seek or create shelter.
+
+Light: Light is safety. Torches and other light sources prevent hostile mobs from spawning. The world is safe during the day because of the sun's light.
+
+First Priority: Your immediate goal upon spawning into a new world is to acquire wood, create a Crafting Table, and build basic wooden tools. Your goal before the first nightfall is to secure a simple shelter.
+
+3. Initial Procedure: The First Day
+Spawn: You will appear in the world. This is your "spawn point."
+
+Gather Wood: Locate trees. Punch the tree trunks with your empty hand to break them into wood log items. Collect at least 5-10 logs.
+
+Craft Planks: Open your inventory (2x2 crafting grid). Place wood logs into one slot to convert them into 4 wooden planks each.
+
+Create Crafting Table: Place one wooden plank in each slot of your 2x2 inventory crafting grid (4 planks total). This creates a Crafting Table.
+
+Place Crafting Table: Place the Crafting Table on the ground to access the 3x3 crafting grid.
+
+Craft Wooden Tools: Use the Crafting Table to create a wooden pickaxe first. This allows you to mine stone. Refer to Manual_Crafting.md for recipes.
+
+Gather Stone: Use the wooden pickaxe to mine 10-20 blocks of stone (cobblestone).
+
+Craft Stone Tools: Use the cobblestone to craft a stone pickaxe, stone axe, stone sword, and a furnace. Stone tools are more durable and efficient than wood. Discard wooden tools as they break.
+
+Find Food: Kill passive animals like pigs, cows, or chickens. They drop raw meat.
+
+Secure Shelter: Before night, find or build a shelter. This can be digging into the side of a hill, finding a cave, or building a small hut (4x4 walls) out of dirt or wood. Place a door for entry/exit. If you cannot craft a door, seal the entrance with solid blocks and wait for morning.
+
+Create Light: Craft torches using coal (found in stone cliffs/caves) or by smelting wood logs in a furnace to create charcoal. Place torches inside your shelter.
+
+4. Environmental Dangers
+Falling: Taking damage from falling more than 3 blocks.
+
+Drowning: Staying underwater for too long without air.
+
+Lava: Causes rapid, severe fire damage. Avoid at all costs.
+
+Fire: Can be caused by lava or lightning. Spreads to flammable blocks.
+
+Cacti: Cause minor damage on contact.
+
+Hostile Mobs: See Manual_Combat.md.

@@ -1,0 +1,99 @@
+Manual 3: Crafting
+1. Core Objective
+To combine materials into new items, tools, and blocks.
+
+2. Key Principles
+The Grid: Crafting is done on a grid. The player's inventory has a 2x2 grid. A Crafting Table provides a 3x3 grid, which is required for most items.
+
+Recipes: Items are created by placing materials in specific patterns on the grid. Most recipes are "shaped," meaning the pattern matters. Some are "shapeless."
+
+Recipe Book: Once you have collected the materials for a recipe, it will appear in your Recipe Book. This can be used to auto-fill the crafting grid.
+
+3. Essential Recipes (3x3 Grid)
+STICKS
+Purpose: Handles for tools and other items.
+
+[  ] [ P ] [  ]
+[  ] [ P ] [  ]
+[  ] [   ] [  ]
+P = Plank (any wood)
+
+TORCH
+Purpose: Provides light to prevent mob spawning.
+
+[  ] [ C ] [  ]
+[  ] [ S ] [  ]
+[  ] [   ] [  ]
+C = Coal or Charcoal
+S = Stick
+
+PICKAXE (Example using Stone)
+Purpose: Mine stone and ore. Substitute material (P) for Wood, Iron, Diamond.
+
+[ P ] [ P ] [ P ]
+[   ] [ S ] [   ]
+[   ] [ S ] [   ]
+P = Cobblestone
+S = Stick
+
+AXE (Example using Stone)
+Purpose: Chop wood. Substitute material (P) for Wood, Iron, Diamond.
+
+[ P ] [ P ] [   ]
+[ P ] [ S ] [   ]
+[   ] [ S ] [   ]
+P = Cobblestone
+S = Stick
+
+SWORD (Example using Stone)
+Purpose: Melee combat. Substitute material (P) for Wood, Iron, Diamond.
+
+[   ] [ P ] [   ]
+[   ] [ P ] [   ]
+[   ] [ S ] [   ]
+P = Cobblestone
+S = Stick
+
+FURNACE
+Purpose: Smelt ores into ingots and cook food.
+
+[ C ] [ C ] [ C ]
+[ C ] [   ] [ C ]
+[ C ] [ C ] [ C ]
+C = Cobblestone or Blackstone
+
+CHEST
+Purpose: Store items.
+
+[ P ] [ P ] [ P ]
+[ P ] [   ] [ P ]
+[ P ] [ P ] [ P ]
+P = Plank (any wood)
+
+SHIELD
+Purpose: Block attacks.
+
+[ P ] [ I ] [ P ]
+[ P ] [ P ] [ P ]
+[   ] [ P ] [   ]
+P = Plank (any wood)
+I = Iron Ingot
+
+BUCKET
+Purpose: Transport liquids.
+
+[   ] [   ] [   ]
+[ I ] [   ] [ I ]
+[   ] [ I ] [   ]
+I = Iron Ingot
+
+4. Utility Blocks
+Crafting Table: Accesses the 3x3 crafting grid.
+
+Furnace: Smelts ores and cooks food using fuel (coal, wood, lava).
+
+Smoker: Cooks food twice as fast as a furnace.
+
+Blast Furnace: Smelts ore twice as fast as a furnace.
+
+Anvil: Repairs and renames items, and combines enchantments.

@@ -1,0 +1,147 @@
+Manual 5: Farming
+1. Core Objective
+To create a renewable and sustainable source of food, crafting materials, and other resources.
+
+2. Key Principles
+Crops: Most crops require tilled soil (farmland), a water source nearby, and sufficient light to grow.
+
+Animals: Most passive animals can be bred by feeding them a specific food item. This will produce a baby animal.
+
+Sustainability: A successful farm produces more resources than it consumes (e.g., harvesting wheat yields both wheat and more seeds).
+
+3. Crop Farming
+Basic Setup:
+Find Water: Locate or place a source of water.
+
+Till Soil: Use a Hoe on dirt or grass blocks within 4 blocks of the water source. The block will turn into farmland. Hydrated farmland is darker.
+
+Plant Seeds: Place seeds (wheat, carrot, potato, beetroot) or the crop itself on the farmland.
+
+Provide Light: Ensure the area is well-lit, either by sunlight or torches, to allow crops to grow at night and prevent mob spawns.
+
+Wait and Harvest: Wait for the crop to fully mature. Break the mature crop block to harvest it. Replant the seeds.
+
+Common Crops:
+Crop
+
+Planted Item
+
+Food Source
+
+Other Uses
+
+Wheat
+
+Seeds
+
+Bread
+
+Breeding Cows/Sheep
+
+Carrots
+
+Carrot
+
+Carrot
+
+Breeding Pigs
+
+Potatoes
+
+Potato
+
+Baked Potato
+
+
+
+Beetroot
+
+Beetroot Seeds
+
+Beetroot Soup
+
+Red Dye
+
+Sugarcane
+
+Sugarcane
+
+-
+
+Paper, Sugar
+
+Melon
+
+Melon Seeds
+
+Melon Slice
+
+
+
+Pumpkin
+
+Pumpkin Seeds
+
+Pumpkin Pie
+
+Golems, Jack o'Lanterns
+
+Bamboo
+
+Bamboo
+
+-
+
+Scaffolding, Sticks
+
+4. Animal Husbandry
+Process:
+Enclosure: Create a fenced-off area or a pen to keep animals from wandering away.
+
+Lure Animals: Hold their preferred food item in your hand to make them follow you. Lure at least two of the same animal into the enclosure.
+
+Breed: Feed the two adult animals their breeding food. They will enter "love mode" and produce a baby.
+
+Cooldown: There is a cooldown period before the same two animals can be bred again.
+
+Common Farm Animals:
+Animal
+
+Breeding Food
+
+Primary Drops (when killed)
+
+Other Resources
+
+Cow
+
+Wheat
+
+Raw Beef, Leather
+
+Milk (using a Bucket)
+
+Pig
+
+Carrots
+
+Raw Porkchop
+
+
+
+Sheep
+
+Wheat
+
+Raw Mutton, Wool (of its color)
+
+Wool (using Shears, renewable)
+
+Chicken
+
+Seeds
+
+Raw Chicken, Feather
+
+Eggs (drops periodically)
+

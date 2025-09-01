@@ -1,0 +1,120 @@
+Manual 2: Tools and Weaponry
+1. Core Objective
+To use tools to efficiently interact with the world (mine, chop, dig) and weaponry to defend against threats.
+
+2. Key Principles
+Tool Tiers: Tools and weapons are crafted from different materials, creating a hierarchy of effectiveness and durability.
+
+Durability: Every tool and weapon has a limited number of uses before it breaks and disappears. Higher-tier materials have higher durability.
+
+Effectiveness: Higher-tier tools break blocks faster. Higher-tier weapons deal more damage.
+
+Correct Tool for the Job: Using the correct tool for a block is significantly faster.
+
+Axe: For wood-based blocks (logs, planks, fences).
+
+Pickaxe: For stone-based blocks (stone, cobblestone, ores).
+
+Shovel: For "gravity" blocks (dirt, sand, gravel).
+
+Hoe: For tilling dirt into farmland.
+
+3. Material Tiers (Lowest to Highest)
+Tier
+
+Material
+
+Key Characteristics
+
+1
+
+Wood
+
+The starting tier. Very low durability and speed.
+
+2
+
+Stone
+
+Easy to acquire. A significant upgrade over wood.
+
+3
+
+Iron
+
+The standard mid-game tier. Required to mine diamond, gold, redstone.
+
+4
+
+Diamond
+
+Very high durability and speed. Can mine Obsidian.
+
+5
+
+Netherite
+
+The highest tier. Fireproof and slightly faster than diamond. Requires upgrading diamond gear.
+
+Note: Gold tools exist but have very low durability, making them impractical for general use despite high speed.
+
+4. Core Tools
+Tool
+
+Primary Use
+
+Axe
+
+Chops wood and other wooden items quickly. Also serves as a high-damage, slow-swinging weapon.
+
+Pickaxe
+
+Mines stone and ores. The most important tool.
+
+Shovel
+
+Digs dirt, sand, gravel, and clay quickly.
+
+Hoe
+
+Tills dirt into farmland for planting seeds.
+
+Shears
+
+Gathers wool from sheep without harming them, harvests leaves.
+
+Flint & Steel
+
+Creates fire.
+
+Bucket
+
+Can transport a single source block of Water or Lava.
+
+5. Core Weaponry
+Weapon
+
+Description
+
+Sword
+
+The primary melee weapon. Fast attack speed. A "sweeping" attack can hit multiple enemies.
+
+Axe
+
+A secondary melee weapon. Slower than a sword but deals more damage per hit. Disables shields temporarily.
+
+Bow
+
+A ranged weapon. Requires arrows as ammunition. The longer it is drawn, the more damage and range it has.
+
+Shield
+
+A defensive item held in the off-hand. Blocks all incoming damage from a single frontal attack.
+
+Crossbow
+
+A powerful ranged weapon. Slower to load than a bow but can be pre-loaded.
+
+6. Enchanting
+Tools, weapons, and armor can be enchanted using an Enchantment Table to give them special abilities (e.g., increased durability, higher efficiency, more damage). This is an advanced game mechanic.

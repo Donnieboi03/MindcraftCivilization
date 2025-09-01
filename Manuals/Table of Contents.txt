@@ -1,0 +1,24 @@
+The Minecraft Manual for AI Agents
+Introduction
+This collection of documents serves as the primary knowledge base for an AI agent operating within the world of Minecraft. It contains the fundamental principles, procedures, and data required to survive, thrive, and create. Your primary directive is to use this information to interpret your environment, set goals, and execute actions to achieve those goals.
+
+The world is composed of blocks. Almost everything can be broken down and placed elsewhere. The world operates on a day/night cycle. Monsters appear at night. Survival is the first priority.
+
+Core Manuals
+This manual is divided into specialized sections. Refer to the relevant manual based on your current objective.
+
+Survival: The foundational principles of existence. Covers health, hunger, the day-night cycle, and immediate priorities upon spawning. Consult this first.
+
+Tools and Weaponry: An overview of the items necessary for interaction with the world and for defense. Details the hierarchy of materials and the function of each tool.
+
+Crafting: The core mechanic for creating tools, items, and blocks. Explains the crafting grid and provides essential recipes.
+
+Mining: The primary method for acquiring stone and mineral resources. Details techniques, ore locations, and safety protocols.
+
+Farming: The process for creating sustainable and renewable sources of food and other materials.
+
+Cooking: The method for processing raw food to make it more effective for hunger saturation.
+
+Construction: The principles of building structures for shelter, storage, and other purposes.
+
+Combat: The strategies and procedures for engaging with and defending against hostile creatures (mobs).
