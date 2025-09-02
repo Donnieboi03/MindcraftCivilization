@@ -1,5 +1,5 @@
 const settings = {
-    "minecraft_version": "1.20.6", // supports up to 1.21.1
+    "minecraft_version": "1.21.1", // supports up to 1.21.1
     "host": "127.0.0.1", // or "localhost", "your.ip.address.here"
     "port": 55916,
     "auth": "offline", // or "microsoft"
@@ -9,9 +9,9 @@ const settings = {
     
     "base_profile": "creative", // survival, assistant, creative, or god_mode
     "profiles": [
-        "profiles/andy-4.json",
-        "profiles/andy-4-clone.json",
-        // "./profiles/gpt.json",
+        "./profiles/tasks/construction_profile.json",
+        // "profiles/andy-4-clone.json",
+        //"./profiles/gpt.json",
         // "./profiles/claude.json",
         // "./profiles/gemini.json",
         // "./profiles/llama.json",
@@ -34,8 +34,8 @@ const settings = {
     "render_bot_view": false, // show bot's view in browser at localhost:3000, 3001...
 
     "allow_insecure_coding": true, // allows newAction command and model can write/run code on your computer. enable at own risk
-    "allow_vision": false, // allows vision model to interpret screenshots as inputs
-    "blocked_actions" : ["!checkBlueprint", "!checkBlueprintLevel", "!getBlueprint", "!getBlueprintLevel"] , // commands to disable and remove from docs. Ex: ["!setMode"]
+    "allow_vision": true, // allows vision model to interpret screenshots as inputs
+    "blocked_actions" : [] , // commands to disable and remove from docs. Ex: ["!setMode"]
     "code_timeout_mins": -1, // minutes code is allowed to run. -1 for no timeout
     "relevant_docs_count": 5, // number of relevant code function docs to select for prompting. -1 for all
 
@@ -48,7 +48,7 @@ const settings = {
 
     "block_place_delay": 0, // delay between placing blocks (ms) if using newAction. helps avoid bot being kicked by anti-cheat mechanisms on servers.
   
-    "log_all_prompts": false, // log ALL prompts to file
+    "log_all_prompts": true, // log ALL prompts to file
 }
 
 export default settings;
