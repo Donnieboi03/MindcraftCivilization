@@ -220,6 +220,11 @@ export class Prompter {
 
             let prompt = this.profile.conversing;
             prompt = await this.replaceStrings(prompt, messages, this.convo_examples);
+
+            console.log('------prompt-----------------');
+            console.log(prompt);
+            console.log('--------------message-------------');
+            console.log(messages);
             let generation;
 
             try {
@@ -251,7 +256,8 @@ export class Prompter {
                 const [_, afterThink] = generation.split('</think>')
                 generation = afterThink
             }
-
+            console.log('---------------api response ----------------');
+            console.log(generation);
             return generation;
         }
 

@@ -10,7 +10,7 @@ const settings = {
     "base_profile": "creative", // survival, assistant, creative, or god_mode
     "profiles": [
         "profiles/andy-4.json",
-        "profiles/andy-4-clone.json",
+        //"profiles/andy-4-clone.json",
         // "./profiles/gpt.json",
         // "./profiles/claude.json",
         // "./profiles/gemini.json",
