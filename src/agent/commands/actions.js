@@ -25,7 +25,132 @@ function runAsAction (actionFn, resume = false, timeout = -1) {
     return wrappedAction;
 }
 
+
+export const SMALL_WOOD_HOUSE = {
+  name: 'small_wood_house',
+  offset: -1,
+  blocks: [
+    [
+      ["", "", "", "", ""],
+      ["", "planks", "planks", "planks", ""],
+      ["", "planks", "planks", "planks", ""],
+      ["", "planks", "planks", "planks", ""],
+      ["", "planks", "planks", "planks", ""],
+      ["", "", "planks", "", ""],
+      ["", "", "", "", ""]
+    ],
+    [
+      ["log", "planks", "planks", "planks", "log"],
+      ["planks", "chest", "bed", "air", "planks"],
+      ["planks", "air", "bed", "air", "planks"],
+      ["planks", "air", "air", "air", "planks"],
+      ["planks", "air", "air", "air", "planks"],
+      ["log", "planks", "door", "planks", "log"],
+      ["", "air", "air", "air", ""]
+    ],
+    [
+      ["log", "planks", "planks", "planks", "log"],
+      ["planks", "torch", "air", "torch", "planks"],
+      ["planks", "air", "air", "air", "planks"],
+      ["planks", "air", "air", "air", "planks"],
+      ["planks", "torch", "air", "torch", "planks"],
+      ["log", "planks", "door", "planks", "log"],
+      ["", "air", "air", "air", ""]
+    ],
+    [
+      ["air", "air", "air", "air", "air"],
+      ["air", "planks", "planks", "planks", "air"],
+      ["planks", "planks", "planks", "planks", "planks"],
+      ["planks", "planks", "planks", "planks", "planks"],
+      ["air", "planks", "planks", "planks", "air"],
+      ["air", "air", "air", "air", "air"],
+      ["", "air", "air", "air", ""]
+    ]
+  ]
+};
+
+/**
+ * Map your shorthand tokens → real block ids.
+ * If you want different wood, just change the values here.
+ */
+export const MATERIAL_MAP = {
+  planks: 'oak_planks',
+  log: 'oak_log',
+  door: 'oak_door',
+  torch: 'torch',
+  bed: 'red_bed',    // pick a specific bed color; adjust if your server expects another id
+  chest: 'chest'
+  // "air" and "" are handled by skipping placements
+};
+
+/**
+ * Build any blueprint shaped like SMALL_WOOD_HOUSE.
+ * By default, starts a couple blocks in front of the bot to avoid building on yourself.
+ */
+export async function buildFromBlueprint(
+  bot,
+  blueprint,
+  {
+    materialMap = MATERIAL_MAP,
+    offsetForward = 2,     // push build a bit forward of current position
+    closeness = 1          // how close to stand before placing
+  } = {}
+) {
+  const pos = bot.entity.position;
+
+  // Treat blueprint.offset as vertical Y offset (negative = sink)
+  const base = {
+    x: Math.floor(pos.x) + offsetForward,
+    y: Math.floor(pos.y) + (blueprint.offset || 0),
+    z: Math.floor(pos.z)
+  };
+
+  const place = async (blockId, x, y, z) => {
+    await skills.goToPosition(bot, x, y, z, closeness);
+    await skills.placeBlock(bot, blockId, x, y, z);
+  };
+
+  // Iterate levels (y), rows (z), cols (x)
+  const levels = blueprint.blocks;
+  for (let y = 0; y < levels.length; y++) {
+    const rows = levels[y];
+    for (let r = 0; r < rows.length; r++) {
+      const cols = rows[r];
+      for (let c = 0; c < cols.length; c++) {
+        const token = cols[c];
+        if (!token || token === 'air') continue;
+
+        const blockId = materialMap[token] ?? token; // allow explicit ids in the blueprint
+        const x = base.x + c;
+        const yWorld = base.y + y;
+        const z = base.z + r;
+
+        // NOTE: Doors/beds normally have orientation/upper-half rules.
+        // This naive placement works on many modpacks/servers,
+        // but if your skills lib exposes door/bed helpers, prefer those.
+        await place(blockId, x, yWorld, z);
+      }
+    }
+  }
+
+  return { origin: base, name: blueprint.name };
+}
+
 export const actionsList = [
+    {
+        name: '!constructHouse',
+        description: 'Builds the "small_wood_house" blueprint near the bot.',
+        perform: async function (agent) {
+        let msg = '';
+        const actionFn = async () => {
+            const info = await buildFromBlueprint(agent.bot, SMALL_WOOD_HOUSE);
+            msg = `Built ${info.name} at ~x:${info.origin.x}, y:${info.origin.y}, z:${info.origin.z}.`;
+        };
+        await agent.actions.runAction('action:constructHouse', actionFn, { timeout: 15 }); // minutes
+        return msg;
+        }
+    },
+
     {
         name: '!newAction',
         description: 'Perform new and unknown custom behaviors that are not available as a command.', 
