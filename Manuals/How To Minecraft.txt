@@ -1,0 +1,150 @@
+The Ultimate Minecraft Guide: From Survivor to Master
+Introduction: What is Minecraft?
+Welcome to Minecraft! At its core, Minecraft is a sandbox game, which means you're given a vast, open world with no specific goals. You decide what you want to do. It's a game about creativity, survival, and adventure. The world is made of blocks, and you can break them down to gather resources and use them to build anything you can imagine.
+
+Core Game Modes
+Survival: This is the standard Minecraft experience. You must gather resources, manage your health and hunger, and protect yourself from monsters that come out at night. This manual will focus primarily on this mode.
+
+Creative: You have unlimited resources, you can fly, and you cannot die. This mode is perfect for building massive projects without limits.
+
+Hardcore: This is Survival mode locked on the hardest difficulty. If you die, your world is deleted forever. For experts only!
+
+Part 1: Your First Day - Surviving the Night
+Your first and most important goal is to survive your first night, which lasts about 7 minutes in real-time. You have 10 minutes of daylight to prepare. Let's begin.
+
+Step 1: Punch a Tree
+The moment you spawn in the world, look for the nearest tree. Walk up to the trunk, and hold down your left mouse button to punch it. The block will crack and eventually break, dropping a small "log" item. Collect these logs by walking over them. Gather about 5-10 logs.
+
+Step 2: Your Inventory & First Crafting
+Press E to open your inventory. You'll see your character and a 2x2 crafting grid.
+
+Take the Oak Logs you gathered and place them into a single slot in the 2x2 crafting grid.
+
+This will produce Oak Planks. Planks are the fundamental building block for most early items. Convert all your logs into planks.
+
+Step 3: The Crafting Table
+A Crafting Table is the most important block in the game. It unlocks a 3x3 crafting grid needed for almost every item.
+
+Place one Oak Plank in each of the four slots of your 2x2 grid.
+
+This creates a Crafting Table. Drag it into your inventory hotbar at the bottom of the screen.
+
+Exit your inventory (E or Esc) and place the Crafting Table on the ground by selecting it in your hotbar and right-clicking on the floor.
+
+Step 4: Crafting Sticks & Your First Tool
+Right-click your new Crafting Table to open the 3x3 grid.
+
+Craft Sticks: Place two planks vertically (one on top of the other). Sticks are used as handles for all tools.
+
+Craft a Wooden Pickaxe: This is the most important first tool. It allows you to mine stone. Arrange three planks across the top row and two sticks vertically in the middle column below them.
+
+Step 5: Upgrade to Stone
+Wood tools are weak. Your next priority is to get stone.
+
+Equip your Wooden Pickaxe.
+
+Find some of the grey Stone blocks on the side of a mountain or by digging a few blocks down into the dirt.
+
+Mine about 15-20 stone blocks. They will drop as Cobblestone.
+
+Go back to your Crafting Table and make Stone Tools. They are much more durable and faster. Make a Stone Pickaxe, Stone Axe, Stone Sword, and Stone Shovel.
+
+Step 6: Prepare for Nightfall
+The sun is setting! Monsters will spawn in the dark. You need shelter.
+
+The Quickest Shelter: Find a dirt or stone hill and simply dig into it using your shovel or pickaxe. Dig a small room, and then block the entrance with dirt blocks before it gets completely dark.
+
+The Simple Hut: If you have time, use your Stone Axe to gather more wood and build a small 5x5 hut with walls and a roof.
+
+Step 7: Light is Life
+Monsters cannot spawn in well-lit areas. You need torches.
+
+Find Coal Ore. It looks like stone with black specks in it. It's very common and can often be seen on the side of cliffs or in shallow caves. Mine it with your pickaxe.
+
+At your Crafting Table, place a piece of Coal directly above a Stick to create Torches.
+
+Place torches inside your shelter to make it safe.
+
+Congratulations! You've survived your first day and night.
+
+Part 2: Essential Survival Skills
+Managing Hunger
+Your hunger bar is the row of food icons opposite your health hearts.
+
+It depletes as you perform actions like sprinting and jumping.
+
+If it falls to zero, you will start losing health.
+
+You can only regenerate health naturally if your hunger bar is nearly full.
+
+How to get food: Kill passive animals like cows, pigs, and chickens. They drop raw meat. You can also break tall grass to find seeds for farming, or break tree leaves for a chance to get an apple.
+
+Cooking
+Eating raw meat isn't very effective. You need to cook it.
+
+Craft a Furnace at a Crafting Table by arranging 8 Cobblestone in a circle, leaving the center empty.
+
+Place the Furnace. Right-click it to open its menu.
+
+Place raw meat in the top slot and a fuel source (like Coal, Logs, or Planks) in the bottom slot.
+
+The arrow will fill up, and your cooked food will appear in the right-hand box. Cooked food restores much more hunger.
+
+Mining and Resources
+Mining is the core of the game. The deeper you go, the rarer the resources you can find.
+
+Safety Rule #1: Never Dig Straight Down! You could fall into a lava pit or a deep cave. Always dig a staircase down so you have a safe path back up.
+
+Key Ores to Find:
+
+Iron (Light brown specks): The most important mid-game resource. You need a Stone Pickaxe to mine it. You must smelt Iron Ore in a furnace to get Iron Ingots. Use these to craft strong tools, armor, and a Bucket.
+
+Diamond (Light blue specks): The best material for tools and armor. It is very rare and found deep underground (check your Y-coordinate by pressing F3 and aim for Y-level -58). You need an Iron Pickaxe to mine it.
+
+Part 3: Monsters and Combat
+Armor and Weapons
+Armor: Reduces the damage you take. You can craft it from Leather (from cows), Iron, or Diamond. A full set has a helmet, chestplate, leggings, and boots. Iron armor is a crucial first upgrade.
+
+Sword: Your primary weapon. A Stone Sword is good to start, but upgrade to an Iron Sword as soon as possible.
+
+Shield: A game-changer for survival. Craft it with 6 planks and 1 iron ingot. Hold right-click to raise it and block all frontal damage from most attacks.
+
+Common Monsters
+Zombie: Slow melee attacker. Easy to defeat.
+
+Skeleton: Shoots arrows from a distance. Block with a shield, then run in to attack.
+
+Creeper: The silent green monster. It will sneak up on you, hiss, and then explode, causing huge damage. When you hear the hiss, run away immediately! The best tactic is to hit it once with your sword and back up quickly.
+
+Spider: Can climb walls and jump at you.
+
+Enderman: A tall, black creature. It's passive unless you look directly at its eyes. If you attack it, it will teleport around.
+
+Part 4: Becoming Self-Sufficient
+Once you have a secure base and a steady supply of food, you can start building a more permanent home.
+
+Farming
+Create a renewable food source so you don't have to hunt.
+
+Craft a Hoe.
+
+Use the Hoe on a dirt block near water to till it into Farmland.
+
+Break tall grass to find Seeds.
+
+Plant the seeds on the farmland. They will grow into Wheat.
+
+You can use 3 Wheat to craft Bread, a great food source.
+
+Building a Real Base
+Expand your simple shelter into a proper base. A good base should have:
+
+A secure, well-lit perimeter (use fences).
+
+A storage room with Chests to organize your items.
+
+A dedicated crafting and smelting area.
+
+A bed (crafted from 3 wool and 3 planks) to set your spawn point and skip the night. Get wool by killing sheep or using Shears on them.
+
+This manual covers the fundamentals to get you started on your adventure. The rest is up to you. Set your own goals. Build a castle, explore the entire world, defeat the Ender Dragon, or design complex machines. Good luck!
