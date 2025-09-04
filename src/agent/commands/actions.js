@@ -466,16 +466,11 @@ export const actionsList = [
     },
     {
         name: '!referenceManuals',
-        description: 'Searches the bot\'s internal knowledge base and manuals for specific strategies on building, crafting, mining, or fighting. Use this command when you are unsure how to complete a complex task or need to form a plan before starting an action.',
-        params: {
-            'query': { 
-                type: 'string', 
-                description: 'Tool for referencing manuals".'
-            }
-        },
+        description: 'Searches the bot\'s internal knowledge base and manuals for specific strategies. Use this command when you are unsure how to complete a complex task or need to form a plan before starting an action.',
+        
         perform: runAsAction(async (agent, query) => {
             // This line is your test. It will print to your server's console.
-            console.log(`[TOOL CALLED] !referenceManuals was triggered with query: "${query}"`);
+            console.log(`!referenceManuals was triggered, available manuals are: "${settings.manual_list}"`);
 
             // This placeholder response is sent back to the LLM.
             return `[SIMULATED RESPONSE] Successfully searched for "${query}". The manual says to gather wood and build four walls.`;

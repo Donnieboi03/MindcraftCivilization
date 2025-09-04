@@ -2,7 +2,9 @@ import * as Mindcraft from './src/mindcraft/mindcraft.js';
 import settings from './settings.js';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
-import { readFileSync } from 'fs';
+import { readFileSync, readdirSync } from 'fs';
+import path, { dirname } from 'path';
+import { fileURLToPath } from 'url';
 
 function parseArguments() {
     return yargs(hideBin(process.argv))
@@ -22,7 +24,9 @@ function parseArguments() {
         .alias('help', 'h')
         .parse();
 }
+
 const args = parseArguments();
+
 if (args.profiles) {
     settings.profiles = args.profiles;
 }
@@ -62,6 +66,22 @@ if (process.env.NUM_EXAMPLES) {
 if (process.env.LOG_ALL) {
     settings.log_all_prompts = process.env.LOG_ALL;
 }
+function getManualList(){
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = dirname(__filename);
+
+    try {
+        const manuals_dir = path.join(__dirname, 'Manuals');
+        const files = readdirSync(manuals_dir);
+        return files;
+        
+    } catch (error) {
+        console.error('Could not load manual files:', error);
+        // We can default to an empty array so the program doesn't crash
+        return [];
+    }
+}
+settings.manual_list = getManualList()
 
 Mindcraft.init(false, settings.mindserver_port);
 
