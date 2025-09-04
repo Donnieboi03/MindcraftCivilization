@@ -1,6 +1,7 @@
 import * as skills from '../library/skills.js';
 import settings from '../settings.js';
 import convoManager from '../conversation.js';
+import { Vec3 } from 'vec3';
 
 
 function runAsAction (actionFn, resume = false, timeout = -1) {
@@ -69,36 +70,263 @@ export const SMALL_WOOD_HOUSE = {
   ]
 };
 
-/**
- * Map your shorthand tokens → real block ids.
- * If you want different wood, just change the values here.
- */
-export const MATERIAL_MAP = {
-  planks: 'oak_planks',
-  log: 'oak_log',
-  door: 'oak_door',
-  torch: 'torch',
-  bed: 'red_bed',    // pick a specific bed color; adjust if your server expects another id
-  chest: 'chest'
-  // "air" and "" are handled by skipping placements
+export const LARGE_HOUSE = {
+name: 'large_house',
+offset: -1,
+blocks: [
+        [
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", ""],
+            ["", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", ""],
+            ["", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", ""],
+            ["", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", ""],
+            ["", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", ""],
+            ["", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", ""],
+            ["", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""]
+        ],
+        [
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", ""],
+            ["", "cobblestone", "air", "air", "air", "air", "air", "air", "air", "cobblestone", ""],
+            ["", "cobblestone", "air", "air", "air", "air", "air", "air", "air", "cobblestone", ""],
+            ["", "cobblestone", "air", "air", "air", "air", "air", "air", "air", "cobblestone", ""],
+            ["", "cobblestone", "planks", "air", "air", "air", "air", "air", "air", "cobblestone", ""],
+            ["", "cobblestone", "planks", "air", "air", "air", "air", "air", "air", "cobblestone", ""],
+            ["", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""]
+        ],
+        [
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", ""],
+            ["", "cobblestone", "air", "torch", "air", "air", "air", "torch", "air", "cobblestone", ""],
+            ["", "cobblestone", "air", "air", "air", "air", "air", "air", "air", "cobblestone", ""],
+            ["", "cobblestone", "air", "air", "air", "air", "air", "air", "air", "cobblestone", ""],
+            ["", "cobblestone", "air", "air", "air", "air", "air", "air", "air", "cobblestone", ""],
+            ["", "cobblestone", "planks", "torch", "air", "air", "air", "torch", "air", "cobblestone", ""],
+            ["", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""]
+        ],
+        [
+            ["", "", "", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "", "", ""],
+            ["", "", "", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "", "", ""],
+            ["", "", "", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "", "", ""],
+            ["cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", ""],
+            ["cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", ""],
+            ["cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", ""],
+            ["cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", ""],
+            ["cobblestone", "cobblestone", "air", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "dirt"],
+            ["cobblestone", "cobblestone", "air", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", ""],
+            ["cobblestone", "cobblestone", "air", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", ""],
+            ["", "", "", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", ""],
+            ["", "", "", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", ""],
+            ["", "", "", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", ""],
+            ["", "", "", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", "cobblestone", ""]
+        ],
+        [
+            ["", "", "", "log", "planks", "planks", "planks", "log", "", "", ""],
+            ["", "", "", "planks", "furnace", "air", "crafting_table", "planks", "", "", ""],
+            ["", "", "", "planks", "air", "air", "air", "planks", "", "", ""],
+            ["log", "planks", "planks", "log", "planks", "air", "planks", "log", "planks", "log", ""],
+            ["planks", "planks", "air", "air", "air", "air", "air", "air", "air", "planks", ""],
+            ["planks", "planks", "air", "air", "air", "air", "air", "air", "air", "planks", ""],
+            ["planks", "planks", "air", "air", "air", "air", "air", "air", "air", "door", "air"],
+            ["planks", "planks", "air", "air", "air", "air", "air", "air", "air", "planks", ""],
+            ["planks", "planks", "air", "air", "air", "air", "air", "air", "air", "planks", ""],
+            ["log", "planks", "planks", "log", "planks", "planks", "air", "planks", "planks", "log", ""],
+            ["", "", "", "planks", "air", "air", "air", "", "air", "planks", ""],
+            ["", "", "", "planks", "chest", "air", "air", "bed", "", "planks", ""],
+            ["", "", "", "planks", "chest", "air", "air", "", "air", "planks", ""],
+            ["", "", "", "log", "planks", "planks", "planks", "planks", "planks", "log", ""]
+        ],
+        [
+            ["", "", "", "log", "planks", "planks", "planks", "log", "", "", ""],
+            ["", "", "", "planks", "air", "air", "air", "glass", "", "", ""],
+            ["", "", "", "planks", "air", "air", "air", "glass", "", "", ""],
+            ["log", "planks", "planks", "log", "planks", "air", "planks", "log", "planks", "log", ""],
+            ["planks", "air", "air", "air", "air", "air", "air", "air", "air", "planks", ""],
+            ["planks", "planks", "air", "air", "air", "air", "air", "air", "air", "planks", ""],
+            ["planks", "planks", "air", "air", "air", "air", "air", "air", "air", "door", "air"],
+            ["planks", "planks", "air", "air", "air", "air", "air", "air", "air", "planks", ""],
+            ["planks", "planks", "air", "air", "air", "air", "air", "air", "air", "planks", ""],
+            ["log", "planks", "planks", "log", "planks", "planks", "air", "planks", "planks", "log", ""],
+            ["", "", "", "planks", "air", "air", "air", "air", "air", "planks", ""],
+            ["", "", "", "planks", "air", "air", "air", "air", "air", "planks", ""],
+            ["", "", "", "planks", "air", "air", "air", "air", "air", "planks", ""],
+            ["", "", "", "log", "planks", "glass", "glass", "glass", "planks", "log", ""]
+        ],
+        [
+            ["", "", "", "log", "planks", "planks", "planks", "log", "", "", ""],
+            ["", "", "", "planks", "air", "air", "air", "glass", "", "", ""],
+            ["", "", "", "planks", "torch", "air", "torch", "glass", "", "", ""],
+            ["log", "planks", "planks", "log", "planks", "air", "planks", "log", "planks", "log", ""],
+            ["planks", "air", "air", "torch", "air", "air", "air", "air", "air", "planks", ""],
+            ["planks", "air", "air", "air", "air", "air", "air", "air", "torch", "planks", ""],
+            ["planks", "planks", "air", "air", "air", "air", "air", "air", "air", "planks", ""],
+            ["planks", "planks", "air", "air", "air", "air", "air", "air", "torch", "planks", ""],
+            ["planks", "planks", "air", "torch", "air", "air", "air", "air", "air", "planks", ""],
+            ["log", "planks", "planks", "log", "planks", "planks", "air", "planks", "planks", "log", ""],
+            ["", "", "", "planks", "air", "torch", "air", "torch", "air", "planks", ""],
+            ["", "", "", "planks", "air", "air", "air", "air", "air", "planks", ""],
+            ["", "", "", "planks", "air", "air", "air", "air", "air", "planks", ""],
+            ["", "", "", "log", "planks", "glass", "glass", "glass", "planks", "log", ""]
+        ],
+        [
+            ["", "", "", "log", "log", "log", "log", "log", "", "", ""],
+            ["", "", "", "log", "planks", "planks", "planks", "log", "", "", ""],
+            ["", "", "", "log", "planks", "planks", "planks", "log", "", "", ""],
+            ["log", "log", "log", "log", "log", "log", "log", "log", "log", "log", ""],
+            ["log", "air", "planks", "planks", "planks", "planks", "planks", "planks", "planks", "log", ""],
+            ["log", "air", "planks", "planks", "planks", "planks", "planks", "planks", "planks", "log", ""],
+            ["log", "air", "planks", "planks", "planks", "planks", "planks", "planks", "planks", "log", ""],
+            ["log", "planks", "planks", "planks", "planks", "planks", "planks", "planks", "planks", "log", ""],
+            ["log", "planks", "planks", "planks", "planks", "planks", "planks", "planks", "planks", "log", ""],
+            ["log", "log", "log", "log", "log", "log", "log", "log", "log", "log", ""],
+            ["", "", "", "log", "planks", "planks", "planks", "planks", "planks", "log", ""],
+            ["", "", "", "log", "planks", "planks", "planks", "planks", "planks", "log", ""],
+            ["", "", "", "log", "planks", "planks", "planks", "planks", "planks", "log", ""],
+            ["", "", "", "log", "log", "log", "log", "log", "log", "log", ""]
+        ],
+        [
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "planks", "planks", "planks", "", "", "", ""],
+            ["", "", "", "", "planks", "planks", "planks", "", "", "", ""],
+            ["log", "planks", "planks", "log", "planks", "planks", "planks", "planks", "planks", "log", ""],
+            ["planks", "air", "bookshelf", "bookshelf", "air", "air", "air", "air", "torch", "planks", ""],
+            ["planks", "air", "air", "air", "air", "air", "air", "air", "air", "planks", ""],
+            ["planks", "air", "air", "air", "air", "air", "air", "air", "air", "planks", ""],
+            ["planks", "air", "air", "air", "air", "air", "air", "air", "air", "planks", ""],
+            ["planks", "air", "air", "air", "air", "air", "air", "air", "torch", "planks", ""],
+            ["log", "planks", "planks", "log", "planks", "planks", "planks", "planks", "planks", "log", ""],
+            ["", "", "", "", "planks", "planks", "planks", "planks", "planks", "", ""],
+            ["", "", "", "", "planks", "planks", "planks", "planks", "planks", "", ""],
+            ["", "", "", "", "planks", "planks", "planks", "planks", "planks", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""]
+        ],
+        [
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["log", "planks", "planks", "log", "glass", "glass", "glass", "glass", "glass", "log", ""],
+            ["glass", "air", "bookshelf", "bookshelf", "air", "air", "air", "air", "air", "planks", ""],
+            ["glass", "air", "air", "air", "air", "air", "air", "air", "air", "glass", ""],
+            ["glass", "air", "air", "air", "air", "air", "air", "air", "air", "glass", ""],
+            ["glass", "air", "air", "air", "air", "air", "air", "air", "air", "glass", ""],
+            ["glass", "air", "air", "air", "air", "air", "air", "air", "air", "glass", ""],
+            ["log", "planks", "planks", "log", "glass", "glass", "glass", "glass", "glass", "log", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""]
+        ],
+        [
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["log", "planks", "planks", "log", "glass", "glass", "glass", "glass", "glass", "log", ""],
+            ["glass", "air", "air", "torch", "air", "air", "air", "air", "air", "glass", ""],
+            ["glass", "air", "air", "air", "air", "air", "air", "air", "air", "glass", ""],
+            ["glass", "air", "air", "air", "air", "air", "air", "air", "air", "glass", ""],
+            ["glass", "air", "air", "air", "air", "air", "air", "air", "air", "glass", ""],
+            ["glass", "air", "air", "torch", "air", "air", "air", "air", "air", "glass", ""],
+            ["log", "planks", "planks", "log", "glass", "glass", "glass", "glass", "glass", "log", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""]
+        ],
+        [
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["log", "log", "log", "log", "log", "log", "log", "log", "log", "log", ""],
+            ["log", "planks", "planks", "log", "planks", "planks", "planks", "planks", "planks", "log", ""],
+            ["log", "planks", "planks", "log", "planks", "planks", "planks", "planks", "planks", "log", ""],
+            ["log", "planks", "planks", "log", "planks", "planks", "planks", "planks", "planks", "log", ""],
+            ["log", "planks", "planks", "log", "planks", "planks", "planks", "planks", "planks", "log", ""],
+            ["log", "planks", "planks", "log", "planks", "planks", "planks", "planks", "planks", "log", ""],
+            ["log", "log", "log", "log", "log", "log", "log", "log", "log", "log", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""]
+        ],
+        [
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "planks", "planks", "planks", "planks", "planks", "", ""],
+            ["", "", "", "", "planks", "planks", "planks", "planks", "planks", "", ""],
+            ["", "", "", "", "planks", "planks", "planks", "planks", "planks", "", ""],
+            ["", "", "", "", "planks", "planks", "planks", "planks", "planks", "", ""],
+            ["", "", "", "", "planks", "planks", "planks", "planks", "planks", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""]
+        ],
+        [
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "planks", "planks", "planks", "", "", ""],
+            ["", "", "", "", "", "planks", "planks", "planks", "", "", ""],
+            ["", "", "", "", "", "planks", "planks", "planks", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""]
+        ]
+    ]
 };
 
-/**
- * Build any blueprint shaped like SMALL_WOOD_HOUSE.
- * By default, starts a couple blocks in front of the bot to avoid building on yourself.
- */
-export async function buildFromBlueprint(
-  bot,
-  blueprint,
+export const MATERIAL_MAP = {
+    planks: 'oak_planks',
+    log: 'oak_log',
+    door: 'oak_door',
+    torch: 'torch',
+    bed: 'red_bed',
+    chest: 'chest',
+    glass: 'glass',
+    furnace: 'furnace',
+    crafting_table: 'crafting_table',
+    bookshelf: 'bookshelf',
+    dirt: 'dirt',
+    redstone: 'redstone_wire',
+    cobblestone: 'cobblestone'
+    // "air" and "" are handled by skipping placements
+};
+
+export async function buildFromBlueprint(bot, blueprint,
   {
     materialMap = MATERIAL_MAP,
-    offsetForward = 2,     // push build a bit forward of current position
-    closeness = 1          // how close to stand before placing
+    offsetForward = 2,
+    closeness = 1
   } = {}
 ) {
   const pos = bot.entity.position;
 
-  // Treat blueprint.offset as vertical Y offset (negative = sink)
   const base = {
     x: Math.floor(pos.x) + offsetForward,
     y: Math.floor(pos.y) + (blueprint.offset || 0),
@@ -110,8 +338,10 @@ export async function buildFromBlueprint(
     await skills.placeBlock(bot, blockId, x, y, z);
   };
 
-  // Iterate levels (y), rows (z), cols (x)
   const levels = blueprint.blocks;
+  let retryQueue = [];
+
+  // First pass: try to place all blocks
   for (let y = 0; y < levels.length; y++) {
     const rows = levels[y];
     for (let r = 0; r < rows.length; r++) {
@@ -120,17 +350,36 @@ export async function buildFromBlueprint(
         const token = cols[c];
         if (!token || token === 'air') continue;
 
-        const blockId = materialMap[token] ?? token; // allow explicit ids in the blueprint
+        const blockId = materialMap[token] ?? token;
         const x = base.x + c;
         const yWorld = base.y + y;
         const z = base.z + r;
 
-        // NOTE: Doors/beds normally have orientation/upper-half rules.
-        // This naive placement works on many modpacks/servers,
-        // but if your skills lib exposes door/bed helpers, prefer those.
-        await place(blockId, x, yWorld, z);
+        const success = await skills.placeBlock(bot, blockId, x, yWorld, z);
+        if (!success) {
+          retryQueue.push({ blockId, x, y: yWorld, z });
+        }
       }
     }
+  }
+
+  // Second pass: keep retrying until all blocks are placed
+  let retries = 0;
+  const maxRetries = 10; // prevent infinite loop
+  while (retryQueue.length > 0 && retries < maxRetries) {
+    const nextRetryQueue = [];
+    for (let i = 0; i < retryQueue.length; i++) {
+      const { blockId, x, y, z } = retryQueue[i];
+      const currentBlock = bot.blockAt(new Vec3(x, y, z));
+      if (!currentBlock || currentBlock.name !== blockId) {
+        const success = await skills.placeBlock(bot, blockId, x, y, z);
+        if (!success) {
+          nextRetryQueue.push({ blockId, x, y, z });
+        }
+      }
+    }
+    retryQueue = nextRetryQueue;
+    retries++;
   }
 
   return { origin: base, name: blueprint.name };
@@ -139,11 +388,11 @@ export async function buildFromBlueprint(
 export const actionsList = [
     {
         name: '!constructHouse',
-        description: 'Builds the "small_wood_house" blueprint near the bot.',
+        description: 'Builds the "large_house" blueprint near the bot.',
         perform: async function (agent) {
         let msg = '';
         const actionFn = async () => {
-            const info = await buildFromBlueprint(agent.bot, SMALL_WOOD_HOUSE);
+            const info = await buildFromBlueprint(agent.bot, LARGE_HOUSE);
             msg = `Built ${info.name} at ~x:${info.origin.x}, y:${info.origin.y}, z:${info.origin.z}.`;
         };
         await agent.actions.runAction('action:constructHouse', actionFn, { timeout: 15 }); // minutes
