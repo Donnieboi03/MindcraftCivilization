@@ -9,9 +9,9 @@ const settings = {
     
     "base_profile": "creative", // survival, assistant, creative, or god_mode
     "profiles": [
-        "./profiles/tasks/construction_profile.json",
+        //"./profiles/tasks/construction_profile.json",
         // "profiles/andy-4-clone.json",
-        //"./profiles/gpt.json",
+        "./profiles/gpt.json",
         // "./profiles/claude.json",
         // "./profiles/gemini.json",
         // "./profiles/llama.json",
@@ -20,11 +20,26 @@ const settings = {
         // "./profiles/mistral.json",
         // "./profiles/deepseek.json",
         // "./profiles/mercury.json",
-        // "./profiles/andy-4.json", // Supports up to 75 messages!
+        "./profiles/andy-4.json", // Supports up to 75 messages!
 
         // using more than 1 profile requires you to /msg each bot indivually
         // individual profiles override values from the base profile
     ],
+
+        // === Public chat mention gating ===
+    // Only act on public chat if the bot is explicitly mentioned by name/alias.
+    require_name_in_public_chat: true,
+
+    // List ALL bot usernames that can be addressed in public chat.
+    // Use the *actual MC usernames* (they usually match your profile names).
+    known_bots: ["gpt", "andy-4"],
+
+    // Optional nicknames / aliases per bot.
+    aliases: {
+        "gpt": ["chatgpt", "assistant"],
+        "andy-4": ["andy", "andrew"]
+    },
+
 
     "load_memory": false, // load memory from previous session
     "init_message": "Respond with hello world and your name", // sends to all on spawn
@@ -49,6 +64,21 @@ const settings = {
     "block_place_delay": 0, // delay between placing blocks (ms) if using newAction. helps avoid bot being kicked by anti-cheat mechanisms on servers.
   
     "log_all_prompts": true, // log ALL prompts to file
+    // === Proximity broadcast (no explicit name) ===
+    proximity_broadcast: {
+    enabled: true,
+    radius_blocks: 8,              // bots within this radius may accept it
+    triggers: ["hey guys", "hey team", "hey bots"], // case-insensitive, prefix match
+    require_trigger: true          // if false: ANY no-name public message nearby will be accepted
+    },
+
+    // === Public chat mention gating ===
+    require_name_in_public_chat: true,
+    known_bots: ["gpt", "andy-4"],
+    aliases: {
+        "gpt": ["chatgpt", "assistant"],
+        "andy-4": ["andy", "andrew"]
+    },
 }
 
 export default settings;

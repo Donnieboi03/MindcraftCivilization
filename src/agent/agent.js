@@ -16,6 +16,9 @@ import { serverProxy } from './mindserver_proxy.js';
 import settings from './settings.js';
 import { Task } from './tasks/tasks.js';
 import { say } from './speak.js';
+import { extractTargetsAndCommand, stripProximityTriggerPrefix } from '../utils/mentions.js';
+
+
 
 export class Agent {
     async start(load_mem=false, init_message=null, count_id=0) {
@@ -142,12 +145,66 @@ export class Agent {
 
 		this.respondFunc = respondFunc;
 
-        this.bot.on('whisper', respondFunc);
-        
-        this.bot.on('chat', (username, message) => {
-            if (serverProxy.getNumOtherAgents() > 0) return;
-            // only respond to open chat messages when there are no other agents
-            respondFunc(username, message);
+        this.bot.on('chat', async (username, message) => {
+            if (username === this.name) return;
+
+            // honor your existing audience restriction
+            if (settings.only_chat_with.length > 0 && !settings.only_chat_with.includes(username)) return;
+
+            let addressed = false;
+            let cleaned = message;
+
+            // 1) Name/alias mention gating
+            if (settings.require_name_in_public_chat) {
+            const { addressed: byName, command, hadMention } = extractTargetsAndCommand(message, {
+                thisBotName: this.name,
+                knownBots: (settings.known_bots && settings.known_bots.length) ? settings.known_bots : [this.name],
+                aliasesByBot: settings.aliases || {}
+            });
+
+            if (hadMention) {
+                if (!byName) return; // message had mentions, but not me
+                addressed = true;    // explicitly mentioned me
+                cleaned = command || message;
+            } else {
+                // 2) Proximity broadcast (no mentions in the message)
+                const prox = settings.proximity_broadcast || {};
+                if (prox.enabled) {
+                // If require_trigger, it must start with one of the phrases (e.g., "hey guys")
+                if (
+                    !prox.require_trigger ||
+                    stripProximityTriggerPrefix(message, prox.triggers).matched
+                ) {
+                    // Compute distance to speaker, if known
+                    const p = this.bot.players[username]?.entity;
+                    const me = this.bot.entity;
+                    if (p && me) {
+                    const dx = p.position.x - me.position.x;
+                    const dy = p.position.y - me.position.y;
+                    const dz = p.position.z - me.position.z;
+                    const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
+                    if (dist <= (prox.radius_blocks ?? 8)) {
+                        addressed = true;
+                        // remove the trigger prefix if present to give the LLM a clean command
+                        const { cleaned: afterTrigger } = stripProximityTriggerPrefix(
+                        message,
+                        prox.triggers || []
+                        );
+                        cleaned = afterTrigger || message;
+                    }
+                    }
+                }
+                }
+            }
+            } else {
+            // Gating disabled: everyone acts on public chat
+            addressed = true;
+            }
+
+            if (!addressed) return;
+
+            // Route into your existing pipeline
+            await respondFunc(username, cleaned);
         });
 
         // Set up auto-eat
