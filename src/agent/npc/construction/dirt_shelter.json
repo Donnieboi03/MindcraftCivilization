@@ -1,6 +1,6 @@
 {
     "name": "dirt_shelter",
-    "offset": -2,
+    "offset": -1,
     "blocks": [
         [
             ["", "", "", "", ""],

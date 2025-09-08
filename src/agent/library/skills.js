@@ -309,7 +309,6 @@ export async function clearNearestFurnace(bot) {
 
 }
 
-
 export async function attackNearest(bot, mobType, kill=true) {
     /**
      * Attack mob of the given type.
@@ -411,8 +410,6 @@ export async function defendSelf(bot, range=9) {
         log(bot, `No enemies nearby to defend self from.`);
     return attacked;
 }
-
-
 
 export async function collectBlock(bot, blockType, num=1, exclude=null) {
     /**
@@ -524,7 +521,6 @@ export async function pickupNearbyItems(bot) {
     return true;
 }
 
-
 export async function breakBlockAt(bot, x, y, z) {
     /**
      * Break the block at the given position. Will use the bot's equipped item.
@@ -573,7 +569,6 @@ export async function breakBlockAt(bot, x, y, z) {
     }
     return true;
 }
-
 
 export async function placeBlock(bot, blockType, x, y, z, placeOn='bottom', dontCheat=false) {
     /**
@@ -945,7 +940,6 @@ export async function consume(bot, itemName="") {
     return true;
 }
 
-
 export async function giveToPlayer(bot, itemType, username, num=1) {
     /**
      * Give one of the specified item to the specified player
@@ -1267,7 +1261,6 @@ export async function goToPlayer(bot, username, distance=3) {
     log(bot, `You have reached ${username}.`);
 }
 
-
 export async function followPlayer(bot, username, distance=4) {
     /**
      * Follow the given player endlessly. Will not return until the code is manually stopped.
@@ -1332,7 +1325,6 @@ export async function followPlayer(bot, username, distance=4) {
     clearInterval(doorCheckInterval);
     return true;
 }
-
 
 export async function moveAway(bot, distance) {
     /**
@@ -1663,4 +1655,114 @@ export async function digDown(bot, distance = 10) {
     }
     log(bot, `Dug down ${distance} blocks.`);
     return true;
+}
+
+export const MATERIAL_MAP = {
+    planks: 'oak_planks',
+    log: 'oak_log',
+    door: 'oak_door',
+    torch: 'torch',
+    bed: 'red_bed',
+    chest: 'chest',
+    glass: 'glass',
+    furnace: 'furnace',
+    crafting_table: 'crafting_table',
+    bookshelf: 'bookshelf',
+    dirt: 'dirt',
+    redstone: 'redstone_wire',
+    cobblestone: 'cobblestone'
+    // "air" and "" are handled by skipping placements
+};
+
+export async function buildFromBlueprint(bot, blueprint,
+  {
+    materialMap = MATERIAL_MAP, // Map of tokens in blueprint to actual block IDs
+    offsetForward = 2, // How many blocks in front of the bot to start building
+    closeness = 10 // How close the bot needs to get to a block before placing
+  } = {}
+) {
+    const pos = bot.entity.position; // Current position of the bot
+    let placedBlocks = []; // List of all placed blocks with their positions
+    let retryBlocks = []; // List of blocks that need to be retried
+
+    const base = {
+        x: Math.floor(pos.x) + offsetForward,
+        y: Math.floor(pos.y) + (blueprint.offset || 0),
+        z: Math.floor(pos.z)
+    };
+
+    const place = async (blockId, x, y, z) => {
+        await goToPosition(bot, x, y, z, closeness);
+        await placeBlock(bot, blockId, x, y, z);
+    };
+
+    const levels = blueprint.blocks;
+    // 1) First pass — attempt to place everything and record attempts
+    for (let y = 0; y < levels.length; y++) {
+        const rows = levels[y];
+        for (let r = 0; r < rows.length; r++) {
+            const cols = rows[r];
+            for (let c = 0; c < cols.length; c++) {
+                const token = cols[c];
+                if (!token || token === 'air') continue;
+
+                const blockId = materialMap[token] ?? token;
+                const x = base.x + c;
+                const yWorld = base.y + y;
+                const z = base.z + r;
+
+                const success = await place(blockId, x, yWorld, z);
+                placedBlocks.push({ blockId, x, y: yWorld, z, success});
+            }
+        }
+    }
+
+    // 2) Verification pass — ensure everything we *think* we placed is actually there
+    for (let i = 0; i < placedBlocks.length; i++) {
+        const {blockId, x, y, z, _} = placedBlocks[i];
+        if (blockId === "torch" && bot.blockAt(new Vec3(x, y, z)).name === "wall_torch") continue
+        // If placement failed or block is not as expected, add to retry list
+        if (bot.blockAt(new Vec3(x, y, z)).name !== blockId) {
+            // If not already in retry list, add it
+            if (!retryBlocks.find(b => b.blockId === blockId && b.x === x && b.y === y && b.z === z)) {
+                retryBlocks.push({ blockId, x, y, z });
+            }
+        }
+    }
+
+    // 3) Retry loop — keep going until queue is empty or safety limit hit
+    let retries = 0;
+    const maxRetries = 10; // prevent infinite loop
+    while (retryBlocks.length > 0 && retries < maxRetries) {
+        let nextretryBlocks = [];
+
+        // 3.1) Attempt to place all blocks in the retry list
+        for (let i = 0; i < retryBlocks.length; i++) {
+            const {blockId, x, y, z} = retryBlocks[i];
+            const currentBlock = bot.blockAt(new Vec3(x, y, z));
+            if (currentBlock && blockId === "torch" && currentBlock.name === "wall_torch") continue
+            if ((!currentBlock || currentBlock.name !== blockId)){
+                const success = await place(blockId, x, y, z);
+            }
+        }
+
+        // 3.2) Verification pass (again) — ensure everything we *think* we placed is actually there
+        for (let i = 0; i < placedBlocks.length; i++) {
+            const {blockId, x, y, z, _} = placedBlocks[i];
+            if (blockId === "torch" && bot.blockAt(new Vec3(x, y, z)).name === "wall_torch") continue
+            // If placement failed or block is not as expected, add to retry list
+            if (bot.blockAt(new Vec3(x, y, z)).name !== blockId) {
+                // If not already in retry list, add it
+                if (!retryBlocks.find(b => b.blockId === blockId && b.x === x && b.y === y && b.z === z)) {
+                    nextretryBlocks.push({ blockId, x, y, z });
+                }
+            }
+        }
+
+        retryBlocks = nextretryBlocks;
+        retries++;
+    }
+
+    
+    return {origin: base, name: blueprint.name};
 }
